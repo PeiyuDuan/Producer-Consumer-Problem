@@ -1,3 +1,17 @@
+/*
+*  本文件完成 InputBlock 的书写
+*
+*    InputBlock 是使用 easyx 库书写的简单的输入框
+*    实现了光标、选中时高亮等效果，最大输入长度 20 位，只能输入数字
+*
+*    主要方法：
+*
+*      - Draw() 绘制输入框及其内容
+*      - Clicked(int mouseX, int mouseY): 处理鼠标点击事件
+*      - keyInput(wchar_t ch): 处理键盘输入事件
+*
+*/
+
 #pragma once
 #ifndef __INPUTBLOCK_H__
 #define __INPUTBLOCK_H__

@@ -1,3 +1,18 @@
+/*
+*  本文件完成 ThreadController 的书写
+*  ThreadController 是控制所有进程的文件
+*    
+*    文件中定义了所有需要的按钮、工具函数的元素。
+*
+*    主要线程：
+*
+*      - settingThread 完成开始工作前的控制内容
+*      - workingThread 完成添加生产者消费者、等待生产者消费者结束的主要工作进程
+*      - graphThread 画图进程，独立于所有进程之外，每隔一段时间就画一遍所有的元素
+*      - mainThread 外部使用的主线程
+*
+*/
+
 #pragma once
 #ifndef __THREAD_CONTROLLER_H__
 #define __THREAD_CONTROLLER_H__
@@ -12,9 +27,9 @@ private:
 	std::vector<Producer*> producers_;
 	std::vector<Consumer*> consumers_;
 
-	Button startButton_{ 30, 20, 100, 25, L"��ʼ����", [this]() { this->beginwork(); } };
-	Button addProducerButton_{ 180, 20, 100, 25, L"����������", [this]() { this->addProducer(); } };
-	Button addConsumerButton_{ 620, 20, 100, 25, L"����������", [this]() { this->addConsumer(); } };
+	Button startButton_{ 30, 20, 100, 25, L"开始工作", [this]() { this->beginwork(); } };
+	Button addProducerButton_{ 180, 20, 100, 25, L"加入生产者", [this]() { this->addProducer(); } };
+	Button addConsumerButton_{ 620, 20, 100, 25, L"加入消费者", [this]() { this->addConsumer(); } };
 
 	int produceNum_;
 	int produceTimeAux_;

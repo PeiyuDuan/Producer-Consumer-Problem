@@ -1,3 +1,25 @@
+/*
+*  本文件完成一系列所需的全局变量及全局函数的书写
+*    
+*    全局变量如下：
+*
+*      - 所有元素的 vector, 使用 allElements() 工厂函数获取
+*      - 所有按钮的 vector, 使用 buttons() 工厂函数获取
+*      - 所有输入框的 vector, 使用 inputBlocks() 工厂函数获取
+*      - 关于生产时间、消费时间、队列等待时间的定义
+*      - 关于进程间通信的变量的定义
+*
+*    主要工具：
+*
+*      - AddElement(SceneElement* newItem) 添加元素时必须调用
+*      - DeleteElement(SceneElement* targetItem) 元素析构函数调用时调用
+*      - class pcout 实现了线程安全的 cout 操作
+*
+*    注意事项：
+*      - 与 allElements() 有关的内容时需要多线程操作的，故在对应的工具函数中添加了包含机制
+*
+*/
+
 #pragma once
 #ifndef __ENVIRONMENT_AND_TOOLS_H__
 #define __ENVIRONMENT_AND_TOOLS_H__
@@ -35,11 +57,11 @@ constexpr int kSceneHeight = 650;
 constexpr int kItemWidth = 70;
 constexpr int kItemHeight = 25;
 
-const std::wstring kBufferSizePrompt{ L"����������\n�����鳬��20\n�Ƽ�������5��15" };
-const std::wstring kWaitTimePrompt{ L"���еȴ�ʱ��\n��λ��s\n�Ƽ�ʱ�䣺����ʱ���10��" };
-const std::wstring kConsumeTimePrompt{ L"ÿ����Ʒ����ʱ��\n��λ��ms\n�Ƽ�ʱ�䣺50��1000" };
-const std::wstring kProduceTimePrompt{ L"ÿ����Ʒ����ʱ��\n��λ��ms\n�Ƽ�ʱ�䣺50��1000" };
-const std::wstring kProduceNumPrompt{ L"�����߲�Ʒ����\n�����鳬��100\n�Ƽ�������15" };
+const std::wstring kBufferSizePrompt{ L"缓冲区容量\n不建议超出20\n推荐数量：5到15" };
+const std::wstring kWaitTimePrompt{ L"队列等待时间\n单位：s\n推荐时间：生产时间的10倍" };
+const std::wstring kConsumeTimePrompt{ L"每个产品消费时间\n单位：ms\n推荐时间：50到1000" };
+const std::wstring kProduceTimePrompt{ L"每个产品生产时间\n单位：ms\n推荐时间：50到1000" };
+const std::wstring kProduceNumPrompt{ L"生产者产品数量\n不建议超出100\n推荐数量：15" };
 
 inline std::vector<SceneElement*>& allElements() {
 	static std::vector<SceneElement*> validVector;

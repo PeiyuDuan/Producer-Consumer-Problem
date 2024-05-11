@@ -1,3 +1,12 @@
+/*
+*  本文件完成 SceneElement 的书写
+*    
+*    SceneElement 所有元素的抽象，是虚基类，不可被实例化
+*   
+*    包含大小、位置元素，有虚函数 Draw() 将元素画在屏幕上
+*
+*/
+
 #pragma once
 #ifndef __SCENE_ELEMENT_H__
 #define __SCENE_ELEMENT_H__
